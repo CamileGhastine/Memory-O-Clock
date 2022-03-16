@@ -14,6 +14,10 @@ var arraySolution = [
     [1, 3, 5, 7, 9, 11, 13],
 ]
 
+var play = 0
+var rowFirstCard = ''
+var columnFirstCard = ''
+
 function displayTable() {
     var table = "<table>"
     var row = 0
@@ -37,13 +41,37 @@ function displayTable() {
     divTable.innerHTML = table;
 }
 
-function show(td) {
-    var rowTd = td.charAt(0)
-    var columnTd = td.charAt(1)
+function show(cardPosition) {
 
-    arrayTable[rowTd][columnTd] = arraySolution[rowTd][columnTd]
+    if (rowFirstCard + columnFirstCard === cardPosition) {
+        return
+    }
+
+    play++
+
+    var rowCard = cardPosition.charAt(0)
+    var columnCard = cardPosition.charAt(1)
+
+    arrayTable[rowCard][columnCard] = arraySolution[rowCard][columnCard]
 
     displayTable()
+
+    if (play > 1) {
+
+        play = 0
+
+        if (arraySolution[rowCard][columnCard] !== arraySolution[rowFirstCard][columnFirstCard]) {
+            arrayTable[rowCard][columnCard] = 0
+            arrayTable[rowFirstCard][columnFirstCard] = 0
+
+            setTimeout(() => {
+                displayTable()
+            }, 1000);
+        }
+    }
+
+    rowFirstCard = rowCard
+    columnFirstCard = columnCard
 }
 
 displayTable();
