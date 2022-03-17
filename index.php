@@ -12,6 +12,7 @@
 <body>
 
     <h1>Jeu memory</h1>
+
     <div id="table">test</div>
 
     <SCRIPT language="JavaScript" type="text/JavaScript" src="js/script.js"></SCRIPT>
