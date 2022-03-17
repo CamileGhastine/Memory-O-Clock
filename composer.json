@@ -1,0 +1,16 @@
+{
+    "name": "camile/oclock",
+    "description": "oclock project test",
+    "autoload": {
+        "psr-4": {
+            "Memory\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CamileGhastine",
+            "email": "camileghastine@hotmail.com"
+        }
+    ],
+    "require": {}
+}
