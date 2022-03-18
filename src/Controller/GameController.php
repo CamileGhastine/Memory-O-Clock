@@ -2,15 +2,28 @@
 
 namespace Memory\Controller;
 
+use Memory\Model\Entity\Game;
+use Memory\Model\GameRepository;
+
 class GameController extends AbstractController
 {
-    public function index()
+    private $GameRepository;
+
+    public function __construct()
     {
-        $this->render('home');
+        $this->GameRepository = new GameRepository;
     }
 
-    public function play() 
+    public function index()
     {
+        $games = $this->GameRepository->findTopTen();
+
+        $this->render('home', compact('games'));
+    }
+
+    public function play()
+    {
+
         $this->render('game');
     }
 }

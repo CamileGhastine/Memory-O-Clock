@@ -4,8 +4,10 @@ namespace Memory\Controller;
 
 abstract class AbstractController
 {
-    public function render(string $view)
+    protected function render(string $view, array $datas = null): void
     {
+        extract($datas);
+
         ob_start();
         require dirname(__DIR__) . '/view/game/' . $view . '.php';
         $content = ob_get_clean();
