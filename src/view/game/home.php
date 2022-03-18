@@ -1,0 +1,1 @@
+<p><a href="?page=game">jouez</a></p>

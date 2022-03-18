@@ -13,9 +13,10 @@
 
     <h1>Jeu memory</h1>
 
-    <div id="table">test</div>
+    <div class="container">
+        <?= $content ?>
+    </div>
 
-    <p><a href="?page=home">Retour à l'accueil</a></p>
 
     <SCRIPT language="JavaScript" type="text/JavaScript" src="public/js/script.js"></SCRIPT>
 </body>

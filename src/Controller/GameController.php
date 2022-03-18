@@ -2,15 +2,15 @@
 
 namespace Memory\Controller;
 
-class GameController
+class GameController extends AbstractController
 {
     public function index()
     {
-        require dirname(__DIR__) . '/view/home.php';
+        $this->render('home');
     }
 
     public function play() 
     {
-        require dirname(__DIR__) . '/view/game.php';
+        $this->render('game');
     }
 }
