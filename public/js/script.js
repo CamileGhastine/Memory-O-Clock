@@ -1,77 +1,79 @@
 var divTable = document.querySelector('#table');
 
-var arrayTable = [
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-]
+var numberOfSymbols = 14
+var numberOfColumns = 7
 
-var arraySolution = [
-    [2, 4, 6, 8, 10, 12, 14],
-    [2, 4, 6, 8, 10, 12, 14],
-    [1, 3, 5, 7, 9, 11, 13],
-    [1, 3, 5, 7, 9, 11, 13],
-]
-
+var cards = createRandomTable()
+var firstCardPosition = -1
 var play = 0
-var rowFirstCard = ''
-var columnFirstCard = ''
 
-function displayTable() {
-    var table = "<table>"
-    var row = 0
+function createRandomTable() {
+    var rankedCard = []
+    var RandomizedCards = []
 
-    arrayTable.forEach(tr => {
-        var column = 0
-        table += "<tr>"
+    for (i = 0; i < numberOfSymbols; i++) {
+        rankedCard.push([i + 1, 0])
+        rankedCard.push([i + 1, 0])
+    }
+    
+    while (rankedCard.length >0) {
+        var indice = Math.floor(Math.random() * rankedCard.length)
+        RandomizedCards.push(rankedCard[indice])
+        rankedCard.splice(indice, 1)
+    }
+    
+    return RandomizedCards
+}
 
-        tr.forEach(td => {
-            table += '<td onClick=show("' + row + column + '")><img src="img/' + td + '.png" alt="image de fruit"></td>'
+function displayCards() {
+    var table = '<table>'
 
-            column++
-        })
+    for (i = 0; i < 2 * numberOfSymbols; i++) {
 
-        row++
-        table += '</tr>'
-    })
+        image = cards[i][1] === 0 ? 0 : cards[i][0]
+
+        if (i === 0) table += '<tr>'
+
+        table += '<td onClick=show(' + i + ')><img src="img/' + image + '.png" alt="image de fruit"></td>'
+
+        if ((i + 1) % numberOfColumns === 0) table += '</tr><tr>'
+
+        if (i === numberOfSymbols - 1) table += '</tr>'
+    }
 
     table += '</table>'
 
-    divTable.innerHTML = table;
+    divTable.innerHTML = table
 }
+
 
 function show(cardPosition) {
 
-    if (rowFirstCard + columnFirstCard === cardPosition) {
+    if (firstCardPosition === cardPosition) {
         return
     }
 
     play++
 
-    var rowCard = cardPosition.charAt(0)
-    var columnCard = cardPosition.charAt(1)
+    cards[cardPosition] = [cards[cardPosition][0], 1]
 
-    arrayTable[rowCard][columnCard] = arraySolution[rowCard][columnCard]
+    displayCards()
 
-    displayTable()
+    if (play > 1 && cards[firstCardPosition][0] !== cards[cardPosition][0]) {
+        cards[firstCardPosition][1] = 0
+        cards[cardPosition][1] = 0
 
-    if (play > 1) {
-
-        play = 0
-
-        if (arraySolution[rowCard][columnCard] !== arraySolution[rowFirstCard][columnFirstCard]) {
-            arrayTable[rowCard][columnCard] = 0
-            arrayTable[rowFirstCard][columnFirstCard] = 0
-
-            setTimeout(() => {
-                displayTable()
-            }, 1000);
-        }
+        setTimeout(() => {
+            displayCards()
+        }, 1000);
     }
 
-    rowFirstCard = rowCard
-    columnFirstCard = columnCard
+    firstCardPosition = cardPosition
+
+    if (play > 1) {
+        play = 0
+        firstCardPosition = -1
+    }
 }
 
-displayTable();
+displayCards()

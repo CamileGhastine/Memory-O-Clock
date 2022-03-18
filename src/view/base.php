@@ -17,7 +17,6 @@
         <?= $content ?>
     </div>
 
-    <SCRIPT language="JavaScript" type="text/JavaScript" src="js/script.js"></SCRIPT>
 </body>
 
 </html>
