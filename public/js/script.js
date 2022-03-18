@@ -27,7 +27,7 @@ function displayTable() {
         table += "<tr>"
 
         tr.forEach(td => {
-            table += '<td onClick=show("' + row + column + '")><img src="public/img/' + td + '.png" alt="image de fruit"></td>'
+            table += '<td onClick=show("' + row + column + '")><img src="img/' + td + '.png" alt="image de fruit"></td>'
 
             column++
         })

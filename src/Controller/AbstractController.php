@@ -6,7 +6,7 @@ abstract class AbstractController
 {
     protected function render(string $view, array $datas = null): void
     {
-        extract($datas);
+        if ($datas) extract($datas);
 
         ob_start();
         require dirname(__DIR__) . '/view/game/' . $view . '.php';
