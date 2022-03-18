@@ -1,4 +1,5 @@
-<div id="table">test</div>
+<div id="table"></div>
+<div id="progressBar"></div>
 
 <p><a href="?page=home">Retour à l'accueil</a></p>
 

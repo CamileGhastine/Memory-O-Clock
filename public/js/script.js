@@ -1,32 +1,37 @@
 var divTable = document.querySelector('#table');
+var divProgressBar = document.querySelector('#progressBar');
 
 var numberOfSymbols = 14
 var numberOfColumns = 7
 
-var cards = createRandomTable()
 var firstCardPosition = -1
 var play = 0
+var progression = 0
 
-function createRandomTable() {
-    var rankedCard = []
-    var RandomizedCards = []
+var cards = shuffleCards()
+
+function shuffleCards() {
+
+    let rankedCard = []
+    let RandomizedCards = []
 
     for (i = 0; i < numberOfSymbols; i++) {
         rankedCard.push([i + 1, 0])
         rankedCard.push([i + 1, 0])
     }
-    
-    while (rankedCard.length >0) {
-        var indice = Math.floor(Math.random() * rankedCard.length)
+
+    while (rankedCard.length > 0) {
+        let indice = Math.floor(Math.random() * rankedCard.length)
         RandomizedCards.push(rankedCard[indice])
         rankedCard.splice(indice, 1)
     }
-    
+
     return RandomizedCards
 }
 
 function displayCards() {
-    var table = '<table>'
+
+    let table = '<table>'
 
     for (i = 0; i < 2 * numberOfSymbols; i++) {
 
@@ -34,7 +39,7 @@ function displayCards() {
 
         if (i === 0) table += '<tr>'
 
-        table += '<td onClick=show(' + i + ')><img src="img/' + image + '.png" alt="image de fruit"></td>'
+        table += '<td onClick=compareCards(' + i + ')><img src="img/' + image + '.png" alt="image de fruit"></td>'
 
         if ((i + 1) % numberOfColumns === 0) table += '</tr><tr>'
 
@@ -46,8 +51,7 @@ function displayCards() {
     divTable.innerHTML = table
 }
 
-
-function show(cardPosition) {
+function compareCards(cardPosition) {
 
     if (firstCardPosition === cardPosition) {
         return
@@ -59,21 +63,39 @@ function show(cardPosition) {
 
     displayCards()
 
-    if (play > 1 && cards[firstCardPosition][0] !== cards[cardPosition][0]) {
+    if (play === 1) {
+        firstCardPosition = cardPosition
+        return
+    }
+
+    if (cards[firstCardPosition][0] !== cards[cardPosition][0]) {
+        
         cards[firstCardPosition][1] = 0
         cards[cardPosition][1] = 0
 
         setTimeout(() => {
             displayCards()
         }, 1000);
+    } else {
+        progression++
     }
 
-    firstCardPosition = cardPosition
+    play = 0
+    firstCardPosition = -1
 
-    if (play > 1) {
-        play = 0
-        firstCardPosition = -1
+    displayProgression()
+}
+
+function displayProgression() {
+    let progressBar = '<progress value="' + progression + '" max="' + numberOfSymbols + '"></progress> '
+
+    divProgressBar.innerHTML = progressBar
+
+    if (progression === numberOfSymbols) {
+        window.alert('Vous avez Gagné en XXX s !!!')
     }
 }
+
+displayProgression()
 
 displayCards()
