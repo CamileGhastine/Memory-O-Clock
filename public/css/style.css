@@ -14,3 +14,8 @@ img {
 progress {
   width: 800px;
 }
+
+#alert {
+  color: red;
+  font-weight: bold;
+}

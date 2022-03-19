@@ -1,12 +1,17 @@
-var divTable = document.querySelector('#table');
-var divProgressBar = document.querySelector('#progressBar');
+const divTable = document.getElementById('table');
+const divProgressBar = document.getElementById('progressBar');
+const divTimer = document.getElementById('timer');
 
-var numberOfSymbols = 14
-var numberOfColumns = 7
+const numberOfSymbols = 14
+const numberOfColumns = 7
+
+const initialTimer = 180
+var timer = initialTimer
+var progression = 0
+var loose = 0
 
 var firstCardPosition = -1
 var play = 0
-var progression = 0
 
 var cards = shuffleCards()
 
@@ -35,11 +40,12 @@ function displayCards() {
 
     for (i = 0; i < 2 * numberOfSymbols; i++) {
 
-        image = cards[i][1] === 0 ? 0 : cards[i][0]
+        let image = cards[i][1] === 0 ? 0 : cards[i][0]
+        let action = cards[i][1] === 0 ? 'onClick=compareCards(' + i + ')' : ''
 
         if (i === 0) table += '<tr>'
 
-        table += '<td onClick=compareCards(' + i + ')><img src="img/' + image + '.png" alt="image de fruit"></td>'
+        table += '<td ' + action + '><img src="img/' + image + '.png" alt="image de fruit"></td>'
 
         if ((i + 1) % numberOfColumns === 0) table += '</tr><tr>'
 
@@ -69,7 +75,7 @@ function compareCards(cardPosition) {
     }
 
     if (cards[firstCardPosition][0] !== cards[cardPosition][0]) {
-        
+
         cards[firstCardPosition][1] = 0
         cards[cardPosition][1] = 0
 
@@ -77,7 +83,9 @@ function compareCards(cardPosition) {
             displayCards()
         }, 1000);
     } else {
-        progression++
+        if (loose === 0) {
+            progression++
+        }
     }
 
     play = 0
@@ -87,15 +95,27 @@ function compareCards(cardPosition) {
 }
 
 function displayProgression() {
-    let progressBar = '<progress value="' + progression + '" max="' + numberOfSymbols + '"></progress> '
+
+    let progressBar = loose === 0 ? '<progress value="' + progression + '" max="' + numberOfSymbols + '"></progress>' : '<p id="alert">Vous pouvez continuer la partie, mais votre temps ne sera pas enregistré.</p>'
 
     divProgressBar.innerHTML = progressBar
 
     if (progression === numberOfSymbols) {
-        window.alert('Vous avez Gagné en XXX s !!!')
+        clearInterval(timerInterval)
+        divTimer.innerHTML = '<p>Votre temps est de ' + (initialTimer - timer) + ' s</p>'
+        window.alert('Vous avez gagné en ' + (initialTimer - timer) + ' s !!!')
     }
 }
 
-displayProgression()
+var timerInterval = setInterval(() => {
+    timer--
+    divTimer.innerHTML = timer
+    if (timer === 0) {
+        loose = 1
+        divProgressBar.innerHTML = ''
+        clearInterval(timerInterval)
+        window.alert('Vous avez perdu !!!')
+    }
+}, 1000)
 
 displayCards()
