@@ -118,7 +118,7 @@ img {
 
 #underCards {
   display: flex;
-  margin-top : 15px;
+  margin : 15px;
 }
 
 progress {
@@ -126,7 +126,7 @@ width: 500px;
 margin-right: 30px;
 }
 
-#timer {
+.timer {
   background-color: gray;
   color: #fff;
   width: 100px;
@@ -136,7 +136,12 @@ margin-right: 30px;
   border-radius: 10px;
 }
 
-#alert {
-color: red;
-font-weight: bold;
+.result {
+  background-color: gray;
+  color: #fff;
+  width: 600px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
 }

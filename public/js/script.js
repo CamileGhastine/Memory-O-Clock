@@ -2,11 +2,12 @@ const divCards = document.getElementById('cards');
 const divUnderCards = document.getElementById('underCards');
 const divProgressBar = document.getElementById('progressBar');
 const divTimer = document.getElementById('timer');
+const divRestartBtn = document.getElementById('startBtn');
 
 const numberOfSymbols = 14
 const numberOfColumns = 7
 
-const initialTimer = 3
+const initialTimer = 120
 var timer = initialTimer
 var progression = 0
 var loose = 0
@@ -15,6 +16,24 @@ var firstCardPosition = -1
 var play = 0
 
 var cards = shuffleCards()
+
+displayCards()
+
+window.alert('Prêt à commencer ?')
+
+var timerInterval = setInterval(() => {
+
+    timer--
+    divTimer.innerHTML = timer
+
+    if (timer === 0) {
+        loose = 1
+        divUnderCards.innerHTML = ''
+        clearInterval(timerInterval)
+        window.alert('Vous avez perdu !!!')
+    }
+
+}, 1000)
 
 function shuffleCards() {
 
@@ -108,20 +127,6 @@ function displayProgression() {
     }
 }
 
-var timerInterval = setInterval(() => {
-
-    timer--
-    divTimer.innerHTML = timer
-
-    if (timer === 0) {
-        loose = 1
-        divUnderCards.innerHTML = ''
-        clearInterval(timerInterval)
-        window.alert('Vous avez perdu !!!')
-    }
-
-}, 1000)
-
 function testFetch(result) {
 
     let formData = new FormData();
@@ -133,10 +138,7 @@ function testFetch(result) {
     })
         .then(response => response.text())
         .then(response => {
-            divTimer.innerHTML = response
+            divUnderCards.innerHTML = response
         })
         .catch(error => alert("Erreur : " + error));
 }
-
-
-displayCards()

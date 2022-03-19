@@ -7,12 +7,12 @@
             <progress value="0" max="10"></progress>
         </div>
 
-        <div id="timer">180</div>
+        <div id="timer">120</div>
     </div>
 
-    <p>
+    <div>
         <a role="button" class="btn" href="?page=game">Recommencez</a>
-    </p>
+    </div>
 
 </div>
 
