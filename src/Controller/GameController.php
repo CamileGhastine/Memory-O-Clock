@@ -38,12 +38,12 @@ class GameController extends AbstractController
             'ranking' => $this->isTopTen($game->getResult())
         ];
 
-        require dirname(__DIR__) . '/view/game/result.php';
+        require dirname(__DIR__) . '/view/game/ajax/result.php';
     }
 
     private function isTopTen(float $result)
     {
-        $game = $this->GameRepository->findTenth()[0];
+        $game = $this->GameRepository->findTenth(10)[0];
 
         return $result <= $game->getResult();
     }

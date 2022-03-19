@@ -2,7 +2,7 @@ const divTable = document.getElementById('table');
 const divProgressBar = document.getElementById('progressBar');
 const divTimer = document.getElementById('timer');
 
-const numberOfSymbols = 14
+const numberOfSymbols = 2
 const numberOfColumns = 7
 
 const initialTimer = 120

@@ -11,9 +11,11 @@
 
 <body>
 
-    <h1>Jeu memory</h1>
+    <?php require 'shared/_header.php'; ?>
+    <?php require 'shared/_nav.php'; ?>
 
-    <div>
+    <div id="wrapper">
+        <h1>Memory</h1>
         <?= $content ?>
     </div>
 

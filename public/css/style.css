@@ -1,15 +1,80 @@
-table {
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8d3d3;
+}
+
+header {
+  max-width: 100%;
+  margin: 0 auto;
+  background: url("../img/0.png") repeat;
+  padding: 10px;
+  height: 150px;
+}
+
+header h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(238, 241, 224);
+  font-size: 30px;
+  padding-top: 45px;
+}
+
+.main_menu {
+  padding: 5px 0 5px 0;
+  text-align: center;
+  line-height: 32px;
+  background-color: #818181;
+}
+
+ul.main_menu {
+  margin-top: 15px;
+}
+
+.main_menu li {
+  display: inline;
+  padding: 0 10px 0 10px;
+  font-size: 16px;
+}
+
+.main_menu a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  padding: 8px;
+  font-variant: small-caps;
+}
+
+.main_menu a:hover {
+  color: red
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+.frame {
   background-color: gray;
   padding: 10px;
   border-radius: 10px;
+  max-width: 500px;
+}
+
+#rules {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 img {
     border: 1px solid black;
     border-radius: 10px;
     margin: 5px;
-    width: 100px;
-    
+    width: 100px;   
 }
 
 progress {
@@ -19,4 +84,37 @@ progress {
 #alert {
   color: red;
   font-weight: bold;
+}
+
+.btn {
+  color: #FFFFFF;
+  background-color: red;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border: 1px solid black;
+  border-radius: .3rem;
+}
+
+.btn:hover {
+  background-color: rgb(194, 56, 56);
+  width: 102%;
+  height: 102%;
+}
+
+.btn:focus {
+  background-color: rgb(192, 93, 93);
+}
+
+table {
+  text-align: center;
+  background-color: gray;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+th {
+  padding-left: 30px;
+  padding-right: 30px
 }
