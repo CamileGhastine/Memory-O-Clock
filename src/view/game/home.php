@@ -1,12 +1,11 @@
 <table>
     <thead>
         <tr>
-            <th colspan="3">Top 10 des meilleurs temps</th>
+            <th colspan="3">Tableau des leaders</th>
         </tr>
         <tr>
             <th>Classement</th>
-            <th>Score</th>
-            <th>Date</th>
+            <th>temps</th>
         </tr>
     </thead>
     <tbody>
@@ -15,8 +14,7 @@
         ?>
             <tr>
                 <td><?= $rank + 1 ?></td>
-                <td><?= $game->getScore() ?></td>
-                <td><?= $game->getPlayedAt() ?></td>
+                <td><?= $game->getResult() ?></td>
             </tr>
         <?php
         }

@@ -6,15 +6,8 @@ use DateTime;
 
 class Game
 {
-    private $id;
-    private $score;
-    private $playedAt;
-
-    public function __construct()
-    {
-        $playedAt = (new DateTime())->format('d-m-Y H:i:s');
-        $this->setPlayedAt($playedAt);
-    }
+    private int $id;
+    private float $result;
 
     /**
      * Get the value of id
@@ -27,9 +20,9 @@ class Game
     /**
      * Get the value of title
      */
-    public function getScore(): string
+    public function getResult(): float
     {
-        return $this->score;
+        return $this->result;
     }
 
     /**
@@ -37,29 +30,9 @@ class Game
      *
      * @return  self
      */
-    public function setScore(float $score): self
+    public function setResult(float $result): self
     {
-        $this->score = $score;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of date
-     */
-    public function getPlayedAt(): string
-    {
-        return $this->playedAt;
-    }
-
-    /**
-     * Set the value of date
-     *
-     * @return  self
-     */
-    public function setPlayedAt(string $playedAt): self
-    {
-        $this->playedAt = $playedAt;
+        $this->result = $result;
 
         return $this;
     }

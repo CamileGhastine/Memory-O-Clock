@@ -5,7 +5,7 @@ const divTimer = document.getElementById('timer');
 const numberOfSymbols = 14
 const numberOfColumns = 7
 
-const initialTimer = 180
+const initialTimer = 120
 var timer = initialTimer
 var progression = 0
 var loose = 0
@@ -102,20 +102,40 @@ function displayProgression() {
 
     if (progression === numberOfSymbols) {
         clearInterval(timerInterval)
-        divTimer.innerHTML = '<p>Votre temps est de ' + (initialTimer - timer) + ' s</p>'
+        // divTimer.innerHTML = '<p>Votre temps est de ' + (initialTimer - timer) + ' s</p>'
+        testFetch(initialTimer - timer)
         window.alert('Vous avez gagné en ' + (initialTimer - timer) + ' s !!!')
     }
 }
 
 var timerInterval = setInterval(() => {
+
     timer--
     divTimer.innerHTML = timer
+
     if (timer === 0) {
         loose = 1
         divProgressBar.innerHTML = ''
         clearInterval(timerInterval)
         window.alert('Vous avez perdu !!!')
     }
+
 }, 1000)
+
+function testFetch(result) {
+
+    let formData = new FormData();
+    formData.append('result', result);
+
+    fetch("?page=add", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(response => {
+            divTimer.innerHTML = response
+        })
+        .catch(error => alert("Erreur : " + error));
+}
 
 displayCards()

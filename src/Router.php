@@ -18,7 +18,10 @@ class Router
             } elseif ($page === 'game') {
                 $controller = new GameController();
                 $controller->play();
-            } else {
+            } elseif ($page === 'add') {
+                $controller = new GameController();
+                $controller->addResult();
+            }else {
                 throw new Exception('Erreur 404 : page non trouvée !!!');
             }
         } catch (Exception $e) {

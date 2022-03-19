@@ -16,7 +16,20 @@ class GameRepository extends AbstractRepository
 
     public function findTopTen()
     {
-        $sql = 'SELECT id, score, playedAt FROM game ORDER BY score ASC LIMIT 100';
+        $sql = 'SELECT result FROM game ORDER BY result ASC LIMIT 10';
+        $request = $this->db->query($sql);
+        $request->setFetchMode(PDO::FETCH_CLASS, Game::class);
+
+        $games = $request->fetchAll();
+
+        $request->closeCursor();
+
+        return $games;
+    }
+
+    public function findTenth()
+    {
+        $sql = 'SELECT result FROM game ORDER BY result ASC LIMIT 3,4';
         $request = $this->db->query($sql);
         $request->setFetchMode(PDO::FETCH_CLASS, Game::class);
 
@@ -29,11 +42,10 @@ class GameRepository extends AbstractRepository
 
     public function add(Game $game)
     {
-        $sql = 'INSERT INTO game(playedAt, score) VALUES (:date, :score)';
+        $sql = 'INSERT INTO game(result) VALUES (:result)';
         $request= $this->db->prepare($sql);
         $request->execute([
-            'date' => $game->getPlayedAT(),
-            'score' => $game->getScore()
+            'result' => $game->getResult()
         ]);
     }
 }
