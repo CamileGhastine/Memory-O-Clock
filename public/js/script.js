@@ -1,11 +1,12 @@
-const divTable = document.getElementById('table');
+const divCards = document.getElementById('cards');
+const divUnderCards = document.getElementById('underCards');
 const divProgressBar = document.getElementById('progressBar');
 const divTimer = document.getElementById('timer');
 
-const numberOfSymbols = 2
+const numberOfSymbols = 14
 const numberOfColumns = 7
 
-const initialTimer = 120
+const initialTimer = 3
 var timer = initialTimer
 var progression = 0
 var loose = 0
@@ -54,7 +55,7 @@ function displayCards() {
 
     table += '</table>'
 
-    divTable.innerHTML = table
+    divCards.innerHTML = table
 }
 
 function compareCards(cardPosition) {
@@ -96,13 +97,12 @@ function compareCards(cardPosition) {
 
 function displayProgression() {
 
-    let progressBar = loose === 0 ? '<progress value="' + progression + '" max="' + numberOfSymbols + '"></progress>' : '<p id="alert">Vous pouvez continuer la partie, mais votre temps ne sera pas enregistré.</p>'
+    let progressBar = '<progress value="' + progression + '" max="' + numberOfSymbols + '"></progress>'
 
     divProgressBar.innerHTML = progressBar
 
     if (progression === numberOfSymbols) {
         clearInterval(timerInterval)
-        // divTimer.innerHTML = '<p>Votre temps est de ' + (initialTimer - timer) + ' s</p>'
         testFetch(initialTimer - timer)
         window.alert('Vous avez gagné en ' + (initialTimer - timer) + ' s !!!')
     }
@@ -115,7 +115,7 @@ var timerInterval = setInterval(() => {
 
     if (timer === 0) {
         loose = 1
-        divProgressBar.innerHTML = ''
+        divUnderCards.innerHTML = ''
         clearInterval(timerInterval)
         window.alert('Vous avez perdu !!!')
     }
@@ -137,5 +137,6 @@ function testFetch(result) {
         })
         .catch(error => alert("Erreur : " + error));
 }
+
 
 displayCards()

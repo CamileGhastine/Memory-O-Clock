@@ -14,8 +14,8 @@
     <?php require 'shared/_header.php'; ?>
     <?php require 'shared/_nav.php'; ?>
 
-    <div id="wrapper">
-        <h1>Memory</h1>
+    <div id="baseWrapper">
+        <h1>&#127167; Memory &#127167;</h1>
         <?= $content ?>
     </div>
 

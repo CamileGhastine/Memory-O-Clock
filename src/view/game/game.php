@@ -1,11 +1,19 @@
-<div id="table"></div>
-<div id="progressBar">
-    <progress id="progressBar" value="0" max="10"></progress>
+<div id="gameWrapper">
+
+    <div id="cards"></div>
+
+    <div id="underCards">
+        <div id="progressBar">
+            <progress value="0" max="10"></progress>
+        </div>
+
+        <div id="timer">180</div>
+    </div>
+
+    <p>
+        <a role="button" class="btn" href="?page=game">Recommencez</a>
+    </p>
+
 </div>
-
-<div id="timer"></div>
-
-<p><a href="?page=home">Retour à l'accueil</a></p>
-<p><a href="?page=game">Rejouer</a></p>
 
 <SCRIPT language="JavaScript" type="text/JavaScript" src="js/script.js"></SCRIPT>
