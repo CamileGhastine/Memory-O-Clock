@@ -1,8 +1,8 @@
-const divTable = document.getElementById('table');
+const divTable = document.getElementById('cards');
 const divProgressBar = document.getElementById('progressBar');
 const divTimer = document.getElementById('timer');
 
-const numberOfSymbols = 2
+const numberOfSymbols = 14
 const numberOfColumns = 7
 
 const initialTimer = 120
