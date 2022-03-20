@@ -67,6 +67,6 @@ class GameController extends AbstractController
             'ranking' => $this->resultBinder->findRank($game->getResult(), $this->gameRepository)
         ];
 
-        return $this->renderAjax('result', compact('result'));       
+        return $this->renderAjax('result', compact('result'));
     }
 }

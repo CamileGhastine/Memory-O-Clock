@@ -24,7 +24,7 @@ abstract class AbstractController
         require dirname(__DIR__) . '/view/base.php';
     }
 
-        /**
+    /**
      * @param string $view
      * @param array|null $datas
      * @return void
@@ -35,5 +35,4 @@ abstract class AbstractController
 
         require dirname(__DIR__) . '/view/game/ajax/' . $view . '.php';
     }
- 
 }

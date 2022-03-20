@@ -11,7 +11,7 @@ use Exception;
  */
 class Router
 {
-     /**
+    /**
      * Route the request
      * @return void
      */
