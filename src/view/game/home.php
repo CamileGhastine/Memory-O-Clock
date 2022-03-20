@@ -19,14 +19,18 @@
             <th>Classement</th>
             <th>temps (s)</th>
         </tr>
-    </thead>	
+    </thead>
     <tbody>
         <?php
         foreach ($games as $rank => $game) {
         ?>
             <tr>
                 <td><?= $rank + 1 ?></td>
-                <td><?= $game->getResult() ?></td>
+                <!-- Attention ici à bien utiliser htmlspecialchars pour se protéger des failles XSS.
+                En effet, même si le temps enregistré en base de donnée n'est pas saisit par le client,
+                il peut facilement être manipulé avec une reqête POST simulée par un utilisateur 
+                mal attentioné -->
+                <td><?= htmlspecialchars($game->getResult()) ?></td>
             </tr>
         <?php
         }
