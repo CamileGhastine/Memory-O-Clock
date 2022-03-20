@@ -33,29 +33,29 @@ class GameController extends AbstractController
 
     /**
      * homepage
-     * @return void
+     * @return mixed
      */
-    public function index(): void
+    public function index(): mixed
     {
         $games = $this->gameRepository->findTopTen();
 
-        $this->render('home', compact('games'));
+        return $this->render('home', compact('games'));
     }
 
     /**
      * Game page
-     * @return void
+     * @return mixed
      */
-    public function play(): void
+    public function play(): mixed
     {
-        $this->render('game');
+        return $this->render('game');
     }
 
     /**
      * Call by AJAX request
-     * @return void
+     * @return mixed
      */
-    public function addResult(): void
+    public function addResult(): mixed
     {
         $game = new Game();
         $game->setResult($_POST['result']);
@@ -67,6 +67,6 @@ class GameController extends AbstractController
             'ranking' => $this->resultBinder->findRank($game->getResult(), $this->gameRepository)
         ];
 
-        require dirname(__DIR__) . '/view/game/ajax/result.php';
+        return $this->renderAjax('result', compact('result'));       
     }
 }
