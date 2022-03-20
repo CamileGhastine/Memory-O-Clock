@@ -27,9 +27,9 @@ class GameRepository extends AbstractRepository
         return $games;
     }
 
-    public function findTenth($limit)
+    public function findAll()
     {
-        $sql = 'SELECT result FROM game ORDER BY result ASC LIMIT ' . ($limit - 1) . ', ' . $limit;
+        $sql = 'SELECT result FROM game ORDER BY result ASC';
         $request = $this->db->query($sql);
         $request->setFetchMode(PDO::FETCH_CLASS, Game::class);
 

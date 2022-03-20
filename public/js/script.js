@@ -2,7 +2,6 @@ const divCards = document.getElementById('cards');
 const divUnderCards = document.getElementById('underCards');
 const divProgressBar = document.getElementById('progressBar');
 const divTimer = document.getElementById('timer');
-const divRestartBtn = document.getElementById('startBtn');
 
 const numberOfSymbols = 14
 const numberOfColumns = 7

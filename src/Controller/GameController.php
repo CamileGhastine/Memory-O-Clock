@@ -28,23 +28,27 @@ class GameController extends AbstractController
 
     public function addResult()
     {
-        $game =new Game();
+        $game = new Game();
         $game->setResult($_POST['result']);
 
-        $this->GameRepository->add($game) ;
+        $this->GameRepository->add($game);
 
         $result = [
             'timer' => $game->getResult(),
-            'ranking' => $this->isTopTen($game->getResult())
+            'ranking' => $this->ranked($game->getResult())
         ];
 
         require dirname(__DIR__) . '/view/game/ajax/result.php';
     }
 
-    private function isTopTen(float $result)
+    private function ranked(float $result)
     {
-        $game = $this->GameRepository->findTenth(10)[0];
-
-        return $result <= $game->getResult();
+        $games = $this->GameRepository->findAll();
+        
+        foreach ($games as $index => $game) {
+            if ($game->getResult() >= $result) {
+                return $index;
+            }
+        }
     }
 }
