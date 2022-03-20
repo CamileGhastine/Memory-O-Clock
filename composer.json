@@ -3,14 +3,13 @@
     "description": "oclock project test",
     "autoload": {
         "psr-4": {
-            "Memory\\": "src/"
+            "Memory\\": "src/",
+            "Config\\": "Config/"
         }
     },
-    "authors": [
-        {
-            "name": "CamileGhastine",
-            "email": "camileghastine@hotmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "CamileGhastine",
+        "email": "camileghastine@hotmail.com"
+    }],
     "require": {}
 }

@@ -4,6 +4,7 @@ namespace Memory\Model;
 
 use PDO;
 use PDOException;
+use Config\Config;
 
 /**
  * Class AbstractRepository
@@ -17,13 +18,20 @@ abstract class AbstractRepository
      */
     protected function getDBConnection(): PDO
     {
+        $dbInfos = (new Config)::configDB();
+
         try {
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
             ];
-            
-            return new PDO('mysql:host=localhost;dbname=memory', 'root', '', $options);
+
+            return new PDO(
+                'mysql:host=' . $dbInfos['db_host'] . ';dbname=' . $dbInfos['db_name'],
+                $dbInfos['db_user'],
+                $dbInfos['db_pass'],
+                $options
+            );
         } catch (PDOException $e) {
             print "Erreur: " . $e->getMessage() . " !!!<br/>";
             die();
