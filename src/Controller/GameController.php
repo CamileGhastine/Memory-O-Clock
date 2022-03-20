@@ -4,6 +4,7 @@ namespace Memory\Controller;
 
 use Memory\Model\Entity\Game;
 use Memory\Model\GameRepository;
+use Memory\Service\ResultBinder;
 
 /**
  * Class GameController
@@ -14,14 +15,20 @@ class GameController extends AbstractController
     /**
      * @var GameRepository
      */
-    private $GameRepository;
+    private $gameRepository;
+
+    /**
+     * @var ResultBinder
+     */
+    private $resultBinder;
 
     /**
      * GameController constructor
      */
     public function __construct()
     {
-        $this->GameRepository = new GameRepository;
+        $this->gameRepository = new GameRepository;
+        $this->resultBinder = new ResultBinder;
     }
 
     /**
@@ -30,7 +37,7 @@ class GameController extends AbstractController
      */
     public function index(): void
     {
-        $games = $this->GameRepository->findTopTen();
+        $games = $this->gameRepository->findTopTen();
 
         $this->render('home', compact('games'));
     }
@@ -53,28 +60,13 @@ class GameController extends AbstractController
         $game = new Game();
         $game->setResult($_POST['result']);
 
-        $this->GameRepository->add($game);
+        $this->gameRepository->add($game);
 
         $result = [
             'timer' => $game->getResult(),
-            'ranking' => $this->ranked($game->getResult())
+            'ranking' => $this->resultBinder->findRank($game->getResult(), $this->gameRepository)
         ];
 
         require dirname(__DIR__) . '/view/game/ajax/result.php';
-    }
-
-    /**
-     * @param float $result
-     * @return int|string
-     */
-    private function ranked(float $result)
-    {
-        $games = $this->GameRepository->findAll();
-
-        foreach ($games as $index => $game) {
-            if ($game->getResult() >= $result) {
-                return $index;
-            }
-        }
     }
 }
