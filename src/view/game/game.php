@@ -11,7 +11,7 @@
     </div>
 
     <div>
-        <a role="button" class="btn" href="?page=game">Recommencez</a>
+        <a role="button" class="btn" href="/game">Recommencez</a>
     </div>
 
 </div>

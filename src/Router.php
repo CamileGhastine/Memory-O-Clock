@@ -11,29 +11,42 @@ use Exception;
  */
 class Router
 {
-    /**
+     /**
      * Route the request
      * @return void
      */
     public function run()
     {
-        try {
-            $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+        $uri = $this->getUri();
 
-            if ($page === 'home') {
+        try {
+            if ($uri === '/') {
                 $controller = new GameController();
-                $controller->index();
-            } elseif ($page === 'game') {
+                $controller->home();
+            } elseif ($uri === '/game') {
                 $controller = new GameController();
                 $controller->play();
-            } elseif ($page === 'add') {
+            } elseif ($uri === '/game/add') {
                 $controller = new GameController();
                 $controller->addResult();
             } else {
-                throw new Exception('Erreur 404 : page non trouvée !!!');
+                throw new Exception('Erreur 404 : page non trouvée !!!<br> Retournez à <a href="/">l\'accueil</a>');
             }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+    }
+
+    /**
+     * get the uri of the request
+     *
+     * @return void
+     */
+    private function getUri()
+    {
+        $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
+        $uri = rtrim($uri, '/');
+
+        return $uri ? $uri : '/';
     }
 }

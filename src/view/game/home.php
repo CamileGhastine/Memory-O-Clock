@@ -7,7 +7,7 @@
 </div>
 
 <p>
-    <a role="button" class="btn" href="?page=game">Jouez</a>
+    <a role="button" class="btn" href="/game">Jouez</a>
 </p>
 
 <h2>Classement des leaders &#127942;</h2>

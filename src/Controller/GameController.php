@@ -35,7 +35,7 @@ class GameController extends AbstractController
      * homepage
      * @return mixed
      */
-    public function index(): mixed
+    public function home(): mixed
     {
         $games = $this->gameRepository->findTopTen();
 
