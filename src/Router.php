@@ -39,7 +39,6 @@ class Router
 
     /**
      * get the uri of the request
-     *
      * @return void
      */
     private function getUri()
