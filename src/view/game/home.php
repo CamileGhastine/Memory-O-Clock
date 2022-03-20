@@ -11,14 +11,15 @@
 </p>
 
 <h2>Classement des leaders &#127942;</h2>
+
+<div>&#129351; &#129352; &#x1F949;</div>
 <table>
     <thead>
         <tr>
             <th>Classement</th>
             <th>temps (s)</th>
         </tr>
-    </thead>
-    &#129351; &#129352; &#x1F949; 	
+    </thead>	
     <tbody>
         <?php
         foreach ($games as $rank => $game) {

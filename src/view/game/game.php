@@ -16,4 +16,4 @@
 
 </div>
 
-<SCRIPT language="JavaScript" type="text/JavaScript" src="js/script.js"></SCRIPT>
+<SCRIPT src="js/script.js"></SCRIPT>
