@@ -1,164 +1,189 @@
 /* view/base.php css  */
-
+/* line 12, ../../../../camile/oclock/Memory/sass/style.scss */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8d3d3;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8d3d3;
 }
 
-#baseWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* line 15, ../../../../camile/oclock/Memory/sass/style.scss */
+body #baseWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h1 {
-    text-transform: uppercase;
+/* line 20, ../../../../camile/oclock/Memory/sass/style.scss */
+body h1 {
+  text-transform: uppercase;
 }
-
 
 /* view/shared/_header.php css  */
-
+/* line 28, ../../../../camile/oclock/Memory/sass/style.scss */
 header {
-    max-width: 100%;
-    margin: 0 auto;
-    background: url("../img/0.png") repeat;
-    padding: 10px;
-    height: 150px;
+  background: url("../img/0.png") repeat;
+  max-width: 100%;
+  height: 150px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
+/* line 36, ../../../../camile/oclock/Memory/sass/style.scss */
 header h2 {
-    text-transform: uppercase;
-    text-align: center;
-    color: rgb(238, 241, 224);
-    font-size: 30px;
-    padding-top: 45px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #eef1e0;
+  font-size: 30px;
+  padding-top: 45px;
 }
-
 
 /* view/shared/_nav.php css  */
-
+/* line 47, ../../../../camile/oclock/Memory/sass/style.scss */
 .main_menu {
-    padding: 5px 0 5px 0;
-    text-align: center;
-    line-height: 32px;
-    background-color: #818181;
+  background-color: gray;
+  margin: 0;
+  padding: 5px 0 5px 0;
+  border: 0;
+  border-radius: 0;
+  text-align: center;
+  line-height: 32px;
 }
 
-ul.main_menu {
-    margin-top: 15px;
+/* line 55, ../../../../camile/oclock/Memory/sass/style.scss */
+.main_menu ul {
+  margin-top: 15px;
 }
 
+/* line 58, ../../../../camile/oclock/Memory/sass/style.scss */
 .main_menu li {
-    display: inline;
-    padding: 0 10px 0 10px;
-    font-size: 16px;
+  display: inline;
+  padding: 0 10px 0 10px;
+  font-size: 16px;
 }
 
+/* line 63, ../../../../camile/oclock/Memory/sass/style.scss */
 .main_menu a {
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
-    padding: 8px;
-    font-variant: small-caps;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  padding: 10px;
+  font-variant: small-caps;
 }
 
+/* line 70, ../../../../camile/oclock/Memory/sass/style.scss */
 .main_menu a:hover {
-    color: red
+  color: red;
 }
-
 
 /* view/game/home.php css  */
-
+/* line 78, ../../../../camile/oclock/Memory/sass/style.scss */
 .frame {
-    background-color: gray;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 500px;
+  background-color: gray;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  max-width: 500px;
 }
 
-#rules {
-    text-decoration: underline;
-    font-weight: bold;
+/* line 85, ../../../../camile/oclock/Memory/sass/style.scss */
+.frame #rules {
+  text-decoration: underline;
+  font-weight: bold;
 }
-
 
 /* view/game/game.php css  */
-
+/* line 94, ../../../../camile/oclock/Memory/sass/style.scss */
 #gameWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* line 100, ../../../../camile/oclock/Memory/sass/style.scss */
 img {
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 5px;
-    width: 100px;
+  background-color: none;
+  margin: 5px;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 100px;
 }
 
+/* line 109, ../../../../camile/oclock/Memory/sass/style.scss */
 #underCards {
-    display: flex;
-    margin: 15px;
+  display: flex;
+  margin: 15px;
 }
 
+/* line 114, ../../../../camile/oclock/Memory/sass/style.scss */
 progress {
-    width: 500px;
-    margin-right: 30px;
+  width: 500px;
+  margin-right: 30px;
 }
 
-.timer {
-    background-color: gray;
-    color: #fff;
-    width: 100px;
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 10px;
+/* line 119, ../../../../camile/oclock/Memory/sass/style.scss */
+#timer {
+  background-color: gray;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: #fff;
+  width: 100px;
+  text-align: center;
 }
 
+/* line 130, ../../../../camile/oclock/Memory/sass/style.scss */
 .result {
-    background-color: gray;
-    color: #fff;
-    width: 600px;
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 10px;
+  background-color: gray;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: #fff;
+  width: 600px;
+  text-align: center;
 }
 
-
-/* view/game/home.php & view/game/game.php css  */
-
+/* genral css  */
+/* line 144, ../../../../camile/oclock/Memory/sass/style.scss */
 .btn {
-    color: #FFFFFF;
-    background-color: red;
-    text-decoration: none;
-    padding: .5rem 1rem;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    border: 1px solid black;
-    border-radius: .3rem;
+  background-color: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid gray;
+  border-radius: 0.3rem;
+  background-color: red;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
+/* line 157, ../../../../camile/oclock/Memory/sass/style.scss */
 .btn:hover {
-    background-color: rgb(194, 56, 56);
-    width: 102%;
-    height: 102%;
+  background-color: #c23838;
 }
 
+/* line 161, ../../../../camile/oclock/Memory/sass/style.scss */
 .btn:focus {
-    background-color: rgb(192, 93, 93);
+  background-color: #c05d5d;
 }
 
+/* line 165, ../../../../camile/oclock/Memory/sass/style.scss */
 table {
-    text-align: center;
-    background-color: gray;
-    padding: 10px;
-    border-radius: 10px;
+  background-color: gray;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
 }
 
+/* line 174, ../../../../camile/oclock/Memory/sass/style.scss */
 th {
-    padding-left: 30px;
-    padding-right: 30px
+  padding-left: 30px;
+  padding-right: 30px;
 }
+
+/*# sourceMappingURL=style.css.map */
