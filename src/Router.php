@@ -5,8 +5,16 @@ namespace Memory;
 use Memory\Controller\GameController;
 use Exception;
 
+/**
+ * Class Router
+ * @package Memory
+ */
 class Router
 {
+    /**
+     * Route the request
+     * @return void
+     */
     public function run()
     {
         try {
@@ -21,7 +29,7 @@ class Router
             } elseif ($page === 'add') {
                 $controller = new GameController();
                 $controller->addResult();
-            }else {
+            } else {
                 throw new Exception('Erreur 404 : page non trouvée !!!');
             }
         } catch (Exception $e) {

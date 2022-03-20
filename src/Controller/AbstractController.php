@@ -2,8 +2,17 @@
 
 namespace Memory\Controller;
 
+/**
+ * Class AbstractController
+ * @package Memory\Controller
+ */
 abstract class AbstractController
 {
+    /**
+     * @param string $view
+     * @param array|null $datas
+     * @return void
+     */
     protected function render(string $view, array $datas = null): void
     {
         if ($datas) extract($datas);
