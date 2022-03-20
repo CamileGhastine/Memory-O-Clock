@@ -15,7 +15,9 @@ abstract class AbstractController
      */
     protected function render(string $view, array $datas = null): void
     {
-        if ($datas) extract($datas);
+        if ($datas) {
+            extract($datas);
+        }
 
         ob_start();
         require dirname(__DIR__) . '/view/game/' . $view . '.php';
@@ -31,7 +33,9 @@ abstract class AbstractController
      */
     protected function renderAjax(string $view, array $datas = null): void
     {
-        if ($datas) extract($datas);
+        if ($datas) {
+            extract($datas);
+        }
 
         require dirname(__DIR__) . '/view/game/ajax/' . $view . '.php';
     }

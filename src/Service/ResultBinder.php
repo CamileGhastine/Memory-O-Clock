@@ -11,8 +11,7 @@ use Memory\Model\GameRepository;
 class ResultBinder
 {
     /**
-     * Undocumented function
-     *
+     * find the rank of a result
      * @param float $result
      * @param GameRepository $gameRepository
      * @return int

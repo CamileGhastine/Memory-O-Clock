@@ -27,8 +27,8 @@ class GameController extends AbstractController
      */
     public function __construct()
     {
-        $this->gameRepository = new GameRepository;
-        $this->resultBinder = new ResultBinder;
+        $this->gameRepository = new GameRepository();
+        $this->resultBinder = new ResultBinder();
     }
 
     /**

@@ -18,7 +18,7 @@ abstract class AbstractRepository
      */
     protected function getDBConnection(): PDO
     {
-        $dbInfos = (new Config)::configDB();
+        $dbInfos = (new Config())::configDB();
 
         try {
             $options = [

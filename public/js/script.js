@@ -5,7 +5,7 @@ const divTimer = document.getElementById('timer');
 
 const numberOfSymbols = 14; // Number of different pairs of symbols
 const numberOfColumns = 7; // Number of column to display card (must be chosen concordantly with the number of pairs)
-const initialTimer = 3; // Time to solve the memory before loosing
+const initialTimer = 100; // Time to solve the memory before loosing
 
 var timer = initialTimer; // Timer which decrease to zero 
 var progression = 0; // Variable to follow the progression of the game (increase when player find a pair)

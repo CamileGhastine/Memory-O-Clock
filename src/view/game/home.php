@@ -23,7 +23,7 @@
     <tbody>
         <?php
         foreach ($games as $rank => $game) {
-        ?>
+            ?>
             <tr>
                 <td><?= $rank + 1 ?></td>
                 <!-- Attention ici à bien utiliser htmlspecialchars pour se protéger des failles XSS.
