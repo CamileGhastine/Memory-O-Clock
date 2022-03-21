@@ -1,4 +1,8 @@
 <?php
+/* Un service est une classe dont le rôle est de décharger le contrôleur.
+Ainsi, conformément au principe single responsability (S de SOLID),
+le contrôleur se contente de contrôler.
+C’est une bonne pratique de déporter dans un service la logique métier */
 
 namespace Memory\Service;
 

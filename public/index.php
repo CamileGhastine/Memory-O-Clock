@@ -1,4 +1,7 @@
 <?php
+/* Le client envoie une requête au serveur qui est réceptionnée par le fichier index.php.
+C’est le point d'entré dans l'application.
+C’est ici que le routeur va être instancié et appelé.*/
 
 use Memory\Router;
 

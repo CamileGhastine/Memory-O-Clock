@@ -1,4 +1,9 @@
 <?php
+/* le contrôleur gère la logique du code. C'est lui qui dicte les actions à réaliser.
+Il va demander les données au modèle.
+Puis il va traiter, vérifier et transformer ces données et les injecter dans la vue.
+La vue sera renvoyé au client.
+Elle sera interprétée par son navigateur (html, css, js) et affichée à son écran*/
 
 namespace Memory\Controller;
 
@@ -37,8 +42,10 @@ class GameController extends AbstractController
      */
     public function home(): mixed
     {
+        /* Le contrôleur récupère les données au prêt du modèle. */
         $games = $this->gameRepository->findTopTen();
 
+        /* Les données sont renvoyées à la vue. */
         return $this->render('home', compact('games'));
     }
 
