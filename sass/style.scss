@@ -1,0 +1,177 @@
+@mixin box($bg-color, $margin, $padding, $border, $border-rad) {
+    background-color: $bg-color;
+    margin: $margin;
+    padding: $padding;
+    border: $border;
+    border-radius: $border-rad;
+}
+
+
+/* view/base.php css  */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8d3d3;
+    #baseWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        text-transform: uppercase;
+    }
+}
+
+
+/* view/shared/_header.php css  */
+
+header {
+    background: url("../img/0.png") repeat;
+    max-width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header h2 {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(238, 241, 224);
+    font-size: 30px;
+    padding-top: 45px;
+}
+
+
+/* view/shared/_nav.php css  */
+
+.main_menu {
+    @include box(gray,
+    0,
+    5px 0 5px 0,
+    0,
+    0);
+    text-align: center;
+    line-height: 32px;
+    ul {
+        margin-top: 15px;
+    }
+    li {
+        display: inline;
+        padding: 0 10px 0 10px;
+        font-size: 16px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        text-transform: uppercase;
+        padding: 10px;
+        font-variant: small-caps;
+    }
+    a:hover {
+        color: red
+    }
+}
+
+
+/* view/game/home.php css  */
+
+.frame {
+    @include box(gray,
+    0,
+    10px,
+    1px solid black,
+    10px);
+    max-width: 500px;
+    #rules {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+}
+
+
+/* view/game/game.php css  */
+
+#gameWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    @include box(none,
+    5px,
+    0,
+    1px solid black,
+    10px);
+    width: 100px;
+}
+
+#underCards {
+    display: flex;
+    margin: 15px;
+}
+
+progress {
+    width: 500px;
+    margin-right: 30px;
+}
+
+#timer {
+    @include box(gray,
+    0,
+    5px,
+    1px solid black,
+    10px);
+    color: #fff;
+    width: 100px;
+    text-align: center;
+}
+
+.result {
+    @include box(gray,
+    0,
+    5px,
+    1px solid black,
+    10px);
+    color: #fff;
+    width: 600px;
+    text-align: center;
+}
+
+
+/* genral css  */
+
+.btn {
+    @include box(none,
+    0,
+    .5rem 1rem,
+    1px solid gray,
+    .3rem);
+    background-color: red;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.btn:hover {
+    background-color: rgb(194, 56, 56);
+}
+
+.btn:focus {
+    background-color: rgb(192, 93, 93);
+}
+
+table {
+    @include box(gray,
+    0,
+    10px,
+    1px solid black,
+    10px);
+    text-align: center;
+}
+
+th {
+    padding-left: 30px;
+    padding-right: 30px
+}
