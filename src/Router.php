@@ -1,7 +1,7 @@
 <?php
 /* Notre application est architecturée avec le modèle MVC (modèle, vue, contrôleur).
 Le routeur va analyser l’url de la requête client.
-En fonction de celle-ci, il va appeler la méthode du contrôleur approprié. */
+En fonction de celle-ci, il va appeler la méthode du contrôleur appropriée. */
 
 namespace Memory;
 

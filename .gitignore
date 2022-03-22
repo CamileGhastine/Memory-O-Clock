@@ -1,2 +1,3 @@
 /vendor/
 /Config/Config.php
+.php-cs-fixer.cache

@@ -4,15 +4,15 @@ const divProgressBar = document.getElementById('progressBar');
 const divTimer = document.getElementById('timer');
 
 const numberOfSymbols = 14; // Number of different pairs of symbols
-const numberOfColumns = 7; // Number of column to display card (must be chosen concordantly with the number of pairs)
+const numberOfColumns = 7; // Number of columns to display cards (must be chosen concordantly with the number of pairs)
 const initialTimer = 100; // Time to solve the memory before loosing
 
-var timer = initialTimer; // Timer which decrease to zero 
-var progression = 0; // Variable to follow the progression of the game (increase when player find a pair)
-var loose = false; // Become true when timer is at zero and the player has lost
+var timer = initialTimer; // Timer which decreases to zero 
+var progression = 0; // Variable to follow the progression of the game (increases when player finds a pair)
+var loose = false; // Becomes true when timer is at zero and the player has lost
 
-var firstCardPosition = -1; // Variable to save the position of the first card turn over
-var play = 0; // Variable wich represents the card that has been turn (0: none, 1: first card, 2: second card)
+var firstCardPosition = -1; // Variable to save the position of the first card turned over
+var play = 0; // Variable wich represents the card that has been turned (0: none, 1: first card, 2: second card)
 
 /**
  * Array of array to stock the order of the cards and the state of each card (0: face down or 1: face down)
@@ -24,7 +24,7 @@ displayCards();
 
 window.alert('Prêt à commencer ?');
 
-// Timer that decrease at zero
+// Timer that decreases at zero
 var timerInterval = setInterval(() => {
 
     timer--;
@@ -65,7 +65,7 @@ function shuffleCards() {
 }
 
 /**
- * Create a <table> element which represente the display of the card and place it in the DOM
+ * Create a <table> element which represents the display of the card and place it in the DOM
  */
 function displayCards() {
 
@@ -91,32 +91,32 @@ function displayCards() {
 }
 
 /**
- * show the cards that has been selected and compare them
+ * show the cards that have been selected and compare them
  * 
  * @param { Number} cardPosition 
  */
 function compareCards(cardPosition) {
 
-    // Prevent double clicking on the same image
+    // Prevent double clicking on the same card
     if (firstCardPosition === cardPosition) {
         return;
     }
 
     play++;
 
-    // Change the state of the card that has been turn over
+    // Change the state of the card that has been turned over
     cards[cardPosition] = [cards[cardPosition][0], 1];
 
     displayCards();
 
-    // Save the position of the first card that has been turn over
+    // Save the position of the first card that has been turned over
     if (play === 1) {
         firstCardPosition = cardPosition;
         return;
     }
 
     if (cards[firstCardPosition][0] !== cards[cardPosition][0]) {
-        // Case where the two turn over cards are differents
+        // Case where the two turned over cards are different
 
         cards[firstCardPosition][1] = 0;
         cards[cardPosition][1] = 0;
@@ -127,7 +127,7 @@ function compareCards(cardPosition) {
         }, 1000);
     } else {
         if (!loose) {
-            // Case where the two turn over cards are the same
+            // Case where the two turned over cards are the same
 
             progression++;
         }
@@ -140,7 +140,7 @@ function compareCards(cardPosition) {
 }
 
 /**
- *  Create a <progress> element (a progress bar)and place it in the DOM
+ *  Create a <progress> element (a progress bar) and place it in the DOM
  */
 function displayProgression() {
 
@@ -148,7 +148,7 @@ function displayProgression() {
 
     divProgressBar.innerHTML = progressBar;
 
-    // Case if player find all the cards and win
+    // Case if player finds all the cards and wins
     if (progression === numberOfSymbols) {
         clearInterval(timerInterval);
         testFetch(initialTimer - timer);
@@ -157,7 +157,7 @@ function displayProgression() {
 }
 
 /**
- * AJAX request to send the result (time to solve the problem) to the sever 
+ * AJAX requests to send the result (time to solve the problem) to the server 
  * and place the response (HTMLElement) in the DOM
  * @param {Number} result 
  */

@@ -27,8 +27,8 @@
             <tr>
                 <td><?= $rank + 1 ?></td>
                 <!-- Attention ici à bien utiliser htmlspecialchars pour se protéger des failles XSS.
-                En effet, même si le temps enregistré en base de donnée n'est pas saisit par le client,
-                il peut facilement être manipulé avec une reqête POST simulée par un utilisateur 
+                En effet, même si le temps enregistré en base de donnée n'est pas saisi par le client,
+                il peut facilement être manipulé avec une requête POST simulée par un utilisateur 
                 mal attentioné -->
                 <td><?= htmlspecialchars($game->getResult()) ?></td>
             </tr>

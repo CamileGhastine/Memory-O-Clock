@@ -11,7 +11,7 @@
         "name": "CamileGhastine",
         "email": "camileghastine@hotmail.com"
     }],
-    "require": {
+    "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.8"
     }
 }
