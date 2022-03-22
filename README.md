@@ -1,9 +1,9 @@
 # Jeu memory - test technique O'Clock
 
 ## Les commentaires dans le code
-- Les commentaires en anglais sont les commentaires habituels qu'on trouve dans un code pour en faciliter sa compréhension et son utilisation.
-- Les commentaires en français sont des commentaires additionnels destinés aux apprenants à des fins pédagogiques.
-- Vous trouverez un complément pédagogique dans le fichier "cours.pdf" placé dans le repertoire "docs". 
+* Les commentaires en anglais sont les commentaires habituels qu'on trouve dans un code pour en faciliter sa compréhension et son utilisation.
+* Les commentaires en français sont des commentaires additionnels destinés aux apprenants à des fins pédagogiques.
+* Vous trouverez un complément pédagogique dans le repertoire "docs" : Memento_base_de_donnees.pdf & Memento_model_MVC.pdf
 
 ## Versions
 - PHP version : 8.0.11
