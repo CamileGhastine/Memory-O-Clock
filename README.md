@@ -16,10 +16,10 @@
 1) Ouvrir la console et choisir un dossier pour installer le projet
 
 2) Télécharger le projet avec la commande git :
-`git clone https://github.com/CamileGhastine/Memory.git`
+`https://github.com/CamileGhastine/Memory-O-Clock.git`
 
 3) Aller dans le repertoire du projet avec la commande :
-`cd Memory`
+`cd Memory-O-Clock`
 
 4) Installer composer et ses dépendances avec la commande :
 `composer install`
