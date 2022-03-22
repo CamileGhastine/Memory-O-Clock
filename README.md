@@ -26,7 +26,7 @@
 
 5) Dans le repertoire Config, renommer le fichier "config-copy.php" en "config.php".
 
-6) Dans le fichier nouvellement nommé "config.php" configuré : 
+6) Dans le fichier nouvellement nommé "config.php" configurer : 
 	- Vos informations de connection à la base de données, notamment db_user et db_pass
 
 ### Création de la base de données avec PHPmyAdmin
