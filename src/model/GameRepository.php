@@ -3,7 +3,7 @@
 Il peut communiquer avec une base de données (ici en sql) pour récupérer les données.
 (Mais les données peuvent aussi être contenues dans des variables ou générées par des calculs.)
 La base de données (bdd) interprète les requêtes sql envoyées par le serveur.
-Ces requêtes sont de 4 types :
+Ces requêtes sont de 4 types (CRUD) :
 - C : create pour créer de nouvelles données dans la bdd (INSERT INTO).
 - R : read pour récupérer des données existantes dans la bdd (SELECT).
 - U : update pour modifier des données existantes dans la bdd (UPDATE).
